@@ -1,10 +1,10 @@
-module blockcover::AdminDashboard {
+address 0x1 {
+module AdminDashboard {
     use sui::object::{Self, UID};
     use sui::tx_context::TxContext;
-    use 0x2::PolicyManagement::{InsurancePolicy};
+    use 0x5::PolicyManagement::{InsurancePolicy};
     use 0x2::ClaimsProcessing::{Claim, ClaimStatus};
-    use 0x2::LiquidityPool::{Pool};
-    use std::vector::Vector;
+    use 0x3::LiquidityPool::{Pool};
 
     // Administrative action to approve or deny a claim
     public fun review_claim(ctx: &mut TxContext, claim_id: UID, approve: bool) {
@@ -41,3 +41,4 @@ module blockcover::AdminDashboard {
     // Example and test functions for module verification and administrative actions
 }
 
+}

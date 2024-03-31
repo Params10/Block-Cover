@@ -1,19 +1,19 @@
-module blockcover:: PolicyManagement {
+address 0x5 {
+module PolicyManagement {
     use sui::object::{Self, UID, new};
     use sui::transfer;
     use sui::tx_context::TxContext;
-    use std::vector::Vector;
 
     struct InsurancePolicy has key, store {
         id: UID,
         policyholder: address,
-        item_description: Vector<u8>,
+        item_description: vector<u8>,
         coverage_amount: u64,
         premium_amount: u64,
     }
 
     // Function to create a new insurance policy
-    public(entry) fun create_policy(ctx: &mut TxContext, policyholder: address, item_description: Vector<u8>, coverage_amount: u64, premium_amount: u64) {
+    public(entry) fun create_policy(ctx: &mut TxContext, policyholder: address, item_description: vector<u8>, coverage_amount: u64, premium_amount: u64) {
         let policy_id = new(ctx);
         let policy = InsurancePolicy {
             id: policy_id,
@@ -27,7 +27,9 @@ module blockcover:: PolicyManagement {
 
     // Function to update policy details (example: change in coverage amount or item description)
     public fun update_policy(ctx: &mut TxContext, policy_id: UID, new_coverage_amount: u64, new_item_description: Vector<u8>) {
-        let mut policy: &mut InsurancePolicy = sui::object::borrow_global_mut<InsurancePolicy>(policy_id, &tx_context::sender(ctx));
+        // let mut policy: &mut InsurancePolicy = sui::object::borrow_global_mut<InsurancePolicy>(policy_id, &tx_context::sender(ctx));
+        let policy: &mut InsurancePolicy = sui::object::borrow_global_mut<InsurancePolicy>(policy_id, &tx_context::sender(ctx));
+
         policy.coverage_amount = new_coverage_amount;
         policy.item_description = new_item_description;
     }
@@ -58,4 +60,4 @@ module blockcover:: PolicyManagement {
         create_policy(&mut ctx, policyholder, item_description, coverage_amount, premium_amount);
     }
 }
-
+}

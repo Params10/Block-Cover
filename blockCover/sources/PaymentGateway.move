@@ -1,4 +1,5 @@
-module blockcover:: PaymentGateway {
+address 0x4 {
+module  PaymentGateway {
     use sui::object::{Self, UID, new};
     use sui::tx_context::TxContext;
     use 0x2::PolicyManagement::{InsurancePolicy};
@@ -71,4 +72,5 @@ public fun adjust_balance(ctx: &mut TxContext, pool_uid: UID, adjustment: i64) {
 
     // Example test functions to demonstrate payment and disbursement functionality
 
+}
 }
