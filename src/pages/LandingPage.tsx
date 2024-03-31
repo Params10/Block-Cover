@@ -75,7 +75,7 @@ const LandingPage: React.FC = () => {
             <div className="grid grid-cols-3 gap-x-4">
                 {dataItems.map((item) => (
                     <NavLink key={item._id.toString()} to={`/details/${item._id}`}>
-                    <AssetCard did={{ metadata: { name: item.imeiNumber, description: "Mobile Insurance Policy" } }} />
+                    <AssetCard did={{ metadata: { name:`${item.makeModel.brand} ${item.makeModel.model}` , description: `Device IMEI ${item.imeiNumber}` } }} />
                    </NavLink>
                 ))}
             </div>

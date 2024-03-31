@@ -14,4 +14,5 @@ const InsurancePolicySchema = new mongoose.Schema({
 
 const InsurancePolicy = mongoose.model('InsurancePolicy', InsurancePolicySchema);
 
+
 module.exports = InsurancePolicy;

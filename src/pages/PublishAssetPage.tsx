@@ -27,7 +27,7 @@ export default function App() {
 
   const [makeModel, setMakeModel] = useState<{ brand: Brand; model: string }>({
     brand: "Apple",
-    model: "",
+    model: "iPhone 12",
   });
 
   const calculateCoverageAmount = () => {
@@ -170,7 +170,7 @@ export default function App() {
           />
         </label>
         <label className="flex flex-col">
-          <h2>Coverage Amount</h2>
+          <h2>Estimated Premium</h2>
           <input
             type="text"
             value={coverageAmount}
