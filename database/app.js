@@ -91,6 +91,20 @@ app.post('/api/submitClaim', upload.single('claimImage'), async (req, res) => {
       res.status(500).json({ message: "An error occurred while submitting the claim.", error: error });
    }
   });
+
+
+  // Add this route to your app.js file
+app.get('/api/claims', async (req, res) => {
+   try {
+      // Fetch all claims from the database
+      const claims = await Claim.find();
+      // Send the claims back to the client
+      res.status(200).json(claims);
+   } catch (error) {
+      console.error("Error fetching claims:", error);
+      res.status(500).json({ message: "An error occurred while fetching claims.", error: error });
+   }
+  });
  
 
 app.listen(port, () => {

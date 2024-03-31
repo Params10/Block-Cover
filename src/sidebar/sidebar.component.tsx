@@ -7,6 +7,7 @@ const Sidebar = () => {
             <div className="flex flex-col justify-start text-left w-full ">
                 <SidebarItem to="/" text="My Policies" />
                 <SidebarItem to="publish" text="Buy a Policy" />
+                <SidebarItem to="myclaims" text="My Claims" />
             </div>
         </div>
     );

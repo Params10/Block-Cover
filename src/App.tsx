@@ -7,6 +7,7 @@ import Sidebar from './sidebar/sidebar.component';
 import AssetDetailsPage from './pages/AssetDetailsPage';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import MyClaimsPage from './pages/MyClaimsPage';
 
 interface IAccountContext {
   currentAccount: string|null;
@@ -39,6 +40,7 @@ const App = () => {
               <Route path="/" element={<LandingPage />} />
               <Route path="publish" element={<PublishFormPage />} />
               <Route path="/details/:id" element={<AssetDetailsPage />} />{" "}
+              <Route path="/myclaims" element={<MyClaimsPage />} />
               {/* Ensure this route is defined */}
             </Routes>
           </div>
